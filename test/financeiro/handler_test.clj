@@ -16,3 +16,11 @@
                (:status response) => 404)
          (fact "o texto do corpor eh 'Recurso nao encontrado'"
                (:body response) => "Recurso nao encontrado")))
+
+(facts "O saldo iniciao eh 0"
+       (let [reponse (app (mock/request :get "/saldo"))]
+         (fact "o status da resposta eh 200"
+               (:status response) => 200))
+
+       (fact "o texto do corpo eh '0'"
+             (:body response) => "0"))
